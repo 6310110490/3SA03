@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import CharacterCard from "./CharacterCard";
 import _ from 'lodash';
 
-const prepareStateFromWord = (given_word) => {
-    let word = given_word.toUpperCase()
+const prepareStateFromWord = (word) => {
     let chars = _.shuffle(Array.from(word))
+    let ToNum = chars.map(Number)
     return {
         word,
         chars,
+        ToNum,
         attempt: 1,
         guess: '',
         completed: false
