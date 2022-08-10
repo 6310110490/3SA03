@@ -2,13 +2,25 @@ import React, { useState } from "react";
 import CharacterCard from "./CharacterCard";
 import _ from 'lodash';
 
+function FindLargest(arr) {
+    var largest = arr[0];
+    for (var i = 1; i < arr.length; i++) {
+      if (arr[i] > largest) {
+        largest = arr[i];
+      }
+    }
+    return largest;
+  }
+
 const prepareStateFromWord = (word) => {
     let chars = _.shuffle(Array.from(word))
     let ToNum = chars.map(Number)
+    let Largest = FindLargest(ToNum);
     return {
         word,
         chars,
         ToNum,
+        Largest,
         attempt: 1,
         guess: '',
         completed: false
