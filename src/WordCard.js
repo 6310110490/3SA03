@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import CharacterCard from "./CharacterCard";
 import _ from 'lodash';
 
-function FindLargest(arr) {
+function FindLargest(numbers) {
+    var arr = numbers.map(Number)
     var largest = arr[0];
     for (var i = 1; i < arr.length; i++) {
       if (arr[i] > largest) {
@@ -14,12 +15,9 @@ function FindLargest(arr) {
 
 const prepareStateFromWord = (word) => {
     let chars = _.shuffle(Array.from(word))
-    let ToNum = chars.map(Number)
-    let Largest = FindLargest(ToNum);
+    let Largest = FindLargest(chars);
     return {
-        word,
         chars,
-        ToNum,
         Largest,
         attempt: 1,
         guess: '',
@@ -37,15 +35,13 @@ export default function WordCard(props){
         let guess = state.guess + c
         setState({...state, guess})
 
-        //if(guess.length == state.word.length){
-            if(guess == state.Largest){
-                console.log('yeah!')
-                setState({...state, guess: '', completed: true})
-            }else{
-                console.log('reset')
-                setState({...state, guess: '', attempt: state.attempt + 1})
-            }   
-        //} 
+        if(guess == state.Largest){
+            console.log('yeah!')
+            setState({...state, guess: '', completed: true})
+        }else{
+            console.log('reset')
+            setState({...state, guess: '', attempt: state.attempt + 1})
+        }   
     }
 
     return (
