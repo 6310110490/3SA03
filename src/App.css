@@ -6,10 +6,21 @@
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   margin: 1em;
   user-select: none;
+  color: rgb(230, 239, 240);
+  background: rgb(82, 191, 224);
  }
  
 .activeCard {
-  color: red;
-  background: pink;
+  color: rgb(243, 172, 172);
+  background: rgb(187, 48, 71);
 }
- 
+
+h1 {
+  color: rgb(60, 58, 196);
+  text-align: center;
+}
+
+h3, p {
+  color: rgb(101, 100, 180);
+  margin-left: 2em;
+}
